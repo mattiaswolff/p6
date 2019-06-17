@@ -9,7 +9,7 @@ namespace p6.UnitTests.UseCaseTests
 
     public class RemoveUseCaseTests
     {
-        string existingTodoItemId = "3b35f11e-7080-45e2-a152-afff5a325508";
+        string existingAccountId = "3b35f11e-7080-45e2-a152-afff5a325508";
 
         [Fact]
         public void GivenAccountId_RemoveAccount()
@@ -18,9 +18,9 @@ namespace p6.UnitTests.UseCaseTests
             var gateway = new InMemoryAccountGateway(context);
             IUseCase sut = new Remove(gateway);
 
-            sut.Execute(existingTodoItemId);
+            sut.Execute(existingAccountId);
 
-            Assert.Empty(context.Accounts.Where(e => e.Id == new Guid(existingTodoItemId)));
+            Assert.Empty(context.Accounts.Where(e => e.Id == new Guid(existingAccountId)));
         }
     }
 }
