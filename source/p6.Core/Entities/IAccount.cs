@@ -5,8 +5,6 @@ namespace p6.Core.Entities
     {
         Guid Id { get; }
         string Name { get;  }
-
         void Rename(string name);
-
     }
 }

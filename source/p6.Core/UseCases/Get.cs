@@ -4,7 +4,7 @@ namespace p6.Core.UseCases
     using p6.Core.Boundaries;
     using p6.Core.Boundaries.Get;
     using p6.Core.Gateways;
-    public sealed class Get : IUseCase
+    public sealed class Get : IUseCase<Request>
     {
         private readonly IResponseHandler<Response> _responseHandler;
         private readonly IAccountGateway _accountGateway;

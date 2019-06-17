@@ -6,7 +6,7 @@ namespace p6.Core.UseCases
     using p6.Core.Entities;
     using System;
 
-    public sealed class Add
+    public sealed class Add : IUseCase<Request>
     {
         private readonly IResponseHandler<Response> _responseHandler;
         private readonly IAccountGateway _accountGateway;
