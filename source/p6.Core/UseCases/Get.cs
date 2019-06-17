@@ -13,9 +13,9 @@ namespace p6.Core.UseCases
             _responseHandler = responseHandler;
             _accountGateway = accountGateway;
         }
-        public void Execute(string accountId)
+        public void Execute(Request request)
         {
-            var account = _accountGateway.Get(accountId);
+            var account = _accountGateway.Get(request.AccountId);
             Response response = new Response(account.Id, account.Name);
             _responseHandler.Handle(response);
         }

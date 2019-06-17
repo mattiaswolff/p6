@@ -17,8 +17,8 @@ namespace p6.UnitTests.UseCaseTests
             var context = new InMemoryContext();
             var gateway = new InMemoryAccountGateway(context);
             IUseCase sut = new Remove(gateway);
-
-            sut.Execute(existingAccountId);
+            var request = new Request(existingAccountId);
+            sut.Execute(request);
 
             Assert.Empty(context.Accounts.Where(e => e.Id == new Guid(existingAccountId)));
         }

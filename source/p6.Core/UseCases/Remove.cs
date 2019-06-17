@@ -11,9 +11,9 @@ namespace p6.Core.UseCases
         {
             _accountGateway = accountGateway;
         }
-        public void Execute(string accountId)
+        public void Execute(Request request)
         {
-            _accountGateway.Delete(accountId);
+            _accountGateway.Delete(request.AccountId);
         }
     }
 }
