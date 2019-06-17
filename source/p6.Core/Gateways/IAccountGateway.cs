@@ -7,6 +7,9 @@ namespace p6.Core.Gateways
     {
         IList<IAccount> List();
         void Add(IAccount account);
+
+        IAccount Get(string accountId);
+
         void Delete(string accountId);
     }
 }

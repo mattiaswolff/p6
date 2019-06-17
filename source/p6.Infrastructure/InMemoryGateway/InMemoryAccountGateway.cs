@@ -23,6 +23,10 @@ namespace p6.Infrastructure.InMemoryGateway
         {
             _context.Accounts.Add(account);
         }
+        public IAccount Get(string accountId) 
+        {
+            return _context.Accounts.Where(e => e.Id.ToString().Equals(accountId)).SingleOrDefault();
+        }
         public void Delete(string accountId)
         {
             IAccount existingAccount = _context.Accounts.Where(e => e.Id.ToString().Equals(accountId)).SingleOrDefault();
