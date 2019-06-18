@@ -32,5 +32,10 @@ namespace p6.Infrastructure.InMemoryGateway
             IAccount existingAccount = _context.Accounts.Where(e => e.Id.ToString().Equals(accountId)).SingleOrDefault();
             _context.Accounts.Remove(existingAccount);
         }
+        public void Update(IAccount account)
+        {
+            IAccount existingAccount = _context.Accounts.Where(e => e.Id.ToString().Equals(account.Id)).SingleOrDefault();
+            existingAccount = account;
+        }
     }
 }

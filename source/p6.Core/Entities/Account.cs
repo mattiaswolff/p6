@@ -1,4 +1,5 @@
 ﻿using System;
+using p6.Core.ValueObjects;
 
 namespace p6.Core.Entities
 {
@@ -6,6 +7,7 @@ namespace p6.Core.Entities
     {
         public Guid Id { get; private set; }
         public string Name { get; private set; }
+        public PaymentMethod PaymentMethod {get; private set;}
 
         public Account() {
             Id = Guid.NewGuid();
@@ -22,6 +24,12 @@ namespace p6.Core.Entities
             restoredAccount.Id = accountId;
             restoredAccount.Name = name;
             return restoredAccount;
+        }
+
+        public void AddPaymentMethod(string name, string token, int expiresYear, int expiresMonth, string last4)
+        {
+            var paymentMethod = new PaymentMethod(name, token, expiresYear, expiresMonth, last4);
+            PaymentMethod = paymentMethod;
         }
 
     }
